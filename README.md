@@ -123,6 +123,11 @@ $ rubocop --auto-correct-all | rubocop -A
 - Twitter: [@RealSimoNkosi](https://twitter.com/RealSimoNkosi)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/simo-nkosi-418523180/)
 
+👤 **Okpara Tochukwu**
+
+- GitHub: [@xtrahuman](https://github.com/xtrahuman)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/tochukwuokpara)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
