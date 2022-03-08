@@ -6,18 +6,22 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 d-flex justify-content-end">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
-        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             My Account
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Edit</a></li>
-            <li><a class="dropdown-item" href="#">List</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
+            <% if user_signed_in? %>
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="#">Recipes</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+            <% else %>
+              <li><%= link_to "Sign up", new_user_registration_path, class: "dropdown-item" %></li>
+              <li><a class="dropdown-item" href="#">Recipes</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><%= link_to "Login", new_user_session_path, class: "dropdown-item" %></li>
+            <% end %>
           </ul>
         </li>
       </ul>
