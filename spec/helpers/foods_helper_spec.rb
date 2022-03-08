@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 # Specs in this file have access to a helper object that includes
-# the FoodHelper. For example:
+# the FoodsHelper. For example:
 #
-# describe FoodHelper do
+# describe FoodsHelper do
 #   describe "string concat" do
 #     it "concats two strings with spaces" do
 #       expect(helper.concat_strings("this","that")).to eq("this that")
