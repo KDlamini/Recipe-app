@@ -1,0 +1,22 @@
+<h1>All Food</h1>
+<div class="w-100 d-flex justify-content-center">
+<table class="table table-striped w-75 table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Food</th>
+      <th scope="col">Measurement Unit</th>
+      <th scope="col">Unit price</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @food.each do |food| %>
+    <tr>
+      <td><%= food.name %></td>
+      <td><%= food.measurement_unit %></td>
+      <td><%= food.price %></td>
+      <td>Delete</td>
+    </tr>
+  <%end%>
+  </tbody>
+</table>
+</div>
