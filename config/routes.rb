@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'food/index'
   devise_for :users
   resources :users
   root 'home#index'
