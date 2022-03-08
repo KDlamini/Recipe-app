@@ -12,7 +12,9 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <% if user_signed_in? %>
-              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li>
+                <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
+              </li>
               <li><a class="dropdown-item" href="#">Recipes</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
