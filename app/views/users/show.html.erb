@@ -1,0 +1,11 @@
+<div class="grid-x">
+    <%= link_to user_avatar(@user.photo), user_path(@user), class: 'thumbnail' %>
+    <div class="user">
+        <h3><% @user.name %></h3>
+    </div>
+</div>
+
+<div>
+  <%= link_to "Edit this user", edit_user_path(@user) %> |
+  <%= button_to "Delete account", @user, method: :delete %>
+</div>
