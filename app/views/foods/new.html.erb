@@ -10,7 +10,7 @@
   <div class="form-group d-flex justify-content-center mt-2">
    <div class= "w-25 d-flex flex-column">
     <%= f.label :measurement_unit %>
-    <%= f.text_field :measurement_unit, class: "form-control"  %>
+   <%= f.select(:measurement_unit, options_for_select([['Grams'], ['Kg'], ['unit']])) %>
     </div>
   </div>
 
