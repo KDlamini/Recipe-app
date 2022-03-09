@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :foods
   devise_for :users
   resources :users
+  resources :recipes
   root 'home#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 end
