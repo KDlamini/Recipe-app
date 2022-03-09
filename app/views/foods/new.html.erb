@@ -1,0 +1,29 @@
+
+<%= form_with model: @food do |f| %>
+  <div class="form-group d-flex justify-content-center mt-2">
+   <div class= "w-25 d-flex flex-column">
+    <%= f.label :name %>
+    <%= f.text_field :name , class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group d-flex justify-content-center mt-2">
+   <div class= "w-25 d-flex flex-column">
+    <%= f.label :measurement_unit %>
+   <%= f.select(:measurement_unit, options_for_select([['Grams'], ['Kg'], ['unit']])) %>
+    </div>
+  </div>
+
+  <div class="form-group d-flex justify-content-center mt-2">
+   <div class= "w-25 d-flex flex-column">
+    <%= f.label :price %>
+    <%= f.text_field :price, class: "form-control"  %>
+    </div>
+  </div>
+
+  <div class='submit_button d-flex justify-content-center mt-4'>
+  <div class= "w-25">
+    <%= f.submit "Add new food"%>
+    </div>
+  </div>
+<% end %>
