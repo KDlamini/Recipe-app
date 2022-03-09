@@ -12,7 +12,7 @@
           <%= link_to recipe.name, recipe_path(recipe), class: "text-decoration-none" %>
         </p>
         <p>
-          <%= link_to "Remove", recipe_path(recipe), method: :delete, class: "btn btn-outline-danger" %>
+          <%= button_to "Remove", recipe, method: :delete, class: "btn btn-outline-danger" %>
         </p>
       </div>
       <p class="col-10 ps-4">

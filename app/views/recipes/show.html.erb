@@ -1,10 +1,17 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @recipe %>
 
-<div>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
-  <%= link_to "Back to recipes", recipes_path %>
+<div class="container mt-5 mb-2 d-flex justify-content-between ">
+  <%= link_to "Gererate shopping list", "/foods/new", class: "btn btn-warning" %>
+  <%= link_to "Add ingredient", "/foods/new", class: "btn btn-warning" %>
+</div>
 
-  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
+<hr class="container">
+
+<div class="py-3 px-5 d-flex justify-content-between">
+  <%= link_to "< Back to Recipes", recipes_path, class: "text-decoration-none" %>
+  <%= link_to "Edit Recipe >", edit_recipe_path(@recipe), class: "text-decoration-none" %>
+</div>
+
+<div class="text-center">
+  <%= button_to "Delete recipe", @recipe, method: :delete, class: "btn btn-outline-danger" %>
 </div>
