@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   # GET /users/1
   def show
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   # GET /users/1/edit
