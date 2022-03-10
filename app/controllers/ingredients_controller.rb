@@ -6,10 +6,8 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.new
   end
 
-
   # GET /ingredients/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /ingredients
   def create
@@ -18,7 +16,7 @@ class IngredientsController < ApplicationController
 
     respond_to do |format|
       if @ingredient.save
-        format.html { redirect_to recipe_path(current_recipe), notice: "Food ingredient was successfully added." }
+        format.html { redirect_to recipe_path(current_recipe), notice: 'Food ingredient was successfully added.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -29,7 +27,7 @@ class IngredientsController < ApplicationController
   def update
     respond_to do |format|
       if @ingredient.update(ingredient_params)
-        format.html { redirect_to ingredient_url(@ingredient), notice: "Ingredient was successfully updated." }
+        format.html { redirect_to ingredient_url(@ingredient), notice: 'Ingredient was successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -41,7 +39,7 @@ class IngredientsController < ApplicationController
     current_ingredient.destroy!
 
     respond_to do |format|
-      format.html { redirect_to recipe_path(current_recipe), notice: "Ingredient was successfully removed." }
+      format.html { redirect_to recipe_path(current_recipe), notice: 'Ingredient was successfully removed.' }
     end
   end
 

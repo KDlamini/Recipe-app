@@ -1,4 +1,3 @@
-
 class Ingredient < ApplicationRecord
   self.table_name = 'recipe_foods'
   belongs_to :food
