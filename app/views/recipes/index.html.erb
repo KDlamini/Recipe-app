@@ -1,9 +1,11 @@
 <h1 class="text-center p-3">Recipes</h1>
 
 <ul id="recipes" class="container list-group">
-  <div class="text-end py-2">
-    <%= link_to "New recipe", new_recipe_path, class: "btn btn-warning" %>
-  </div>
+  <% if user_signed_in? %>
+    <div class="text-end py-2">
+      <%= link_to "New recipe", new_recipe_path, class: "btn btn-warning" %>
+    </div>
+  <% end %>
   <hr class="divider">
   <% @recipes.each do |recipe| %>
     <li class="list-group-item mb-3 d-flex border rounded">
@@ -11,9 +13,11 @@
         <p>
           <%= link_to recipe.name, recipe_path(recipe), class: "text-decoration-none" %>
         </p>
-        <p>
-          <%= button_to "Remove", recipe, method: :delete, class: "btn btn-outline-danger" %>
-        </p>
+        <% if can? :destroy, recipe%>
+          <p>
+            <%= button_to "Remove", recipe, method: :delete, class: "btn btn-outline-danger" %>
+          </p>
+        <% end %>
       </div>
       <p class="col-10 ps-4">
         <%= recipe.description %>

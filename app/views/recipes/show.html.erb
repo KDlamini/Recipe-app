@@ -2,7 +2,9 @@
 
 <div class="container mt-5 mb-2 d-flex justify-content-between ">
   <%= link_to "Gererate shopping list", "/foods/new", class: "btn btn-warning" %>
-  <%= link_to "Add ingredient", new_recipe_ingredient_url(@recipe.id), class: "btn btn-warning" %>
+  <% if can? :create, @recipe%>
+    <%= link_to "Add ingredient", new_recipe_ingredient_url(@recipe.id), class: "btn btn-warning" %>
+  <% end %>
 </div>
 
 <hr class="container">
@@ -14,7 +16,9 @@
         <th scope="col-3">Food</th>
         <th scope="col-3">Quantity</th>
         <th scope="col-3">Value</th>
-        <th scope="col-3" class="table-action">Action</th>
+        <% if can? :create, @recipe%>
+          <th scope="col-3" class="table-action">Action</th>
+        <% end %>
       </tr>
     </thead>
     <tbody>
@@ -23,10 +27,12 @@
         <th scope="row"><%= ingredient.food.name %></th>
         <td><%= ingredient.quantity %> <b>g</b></td>
         <td><b>$</b> <%= ingredient.food.price * ingredient.quantity %></td>
-        <td class="d-flex justify-content-center">
-          <%= link_to "Modify", edit_ingredient_url(ingredient.id), class: "btn btn-outline-warning btn-sm mx-2" %>
-          <%= button_to "Remove", ingredient_url(ingredient.id), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-outline-danger btn-sm" %>
-        </td>
+        <% if can? :create, @recipe%>
+          <td class="d-flex justify-content-center">
+            <%= link_to "Modify", edit_ingredient_url(ingredient.id), class: "btn btn-outline-warning btn-sm mx-2" %>
+            <%= button_to "Remove", ingredient_url(ingredient.id), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-outline-danger btn-sm" %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
     </tbody>
@@ -35,9 +41,14 @@
 
 <div class="py-3 px-5 d-flex justify-content-between">
   <%= link_to "< Back to Recipes", recipes_path, class: "text-decoration-none" %>
-  <%= link_to "Edit Recipe >", edit_recipe_path(@recipe), class: "text-decoration-none" %>
+
+  <% if can? :create, @recipe%>
+    <%= link_to "Edit Recipe >", edit_recipe_path(@recipe), class: "text-decoration-none" %>
+  <% end %>
 </div>
 
-<div class="text-center">
-  <%= button_to "Delete recipe", @recipe, method: :delete, class: "btn btn-outline-danger" %>
-</div>
+<% if can? :destroy, @recipe%>
+  <div class="text-center">
+    <%= button_to "Delete recipe", @recipe, method: :delete, class: "btn btn-outline-danger" %>
+  </div>
+<% end %>
