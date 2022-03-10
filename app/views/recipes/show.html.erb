@@ -1,10 +1,54 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @recipe %>
 
-<div>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
-  <%= link_to "Back to recipes", recipes_path %>
-
-  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
+<div class="container mt-5 mb-2 d-flex justify-content-between ">
+  <%= link_to "Gererate shopping list", "/foods/new", class: "btn btn-warning" %>
+  <% if can? :create, @recipe%>
+    <%= link_to "Add ingredient", new_recipe_ingredient_url(@recipe.id), class: "btn btn-warning" %>
+  <% end %>
 </div>
+
+<hr class="container">
+
+<section class="container mb-5">
+  <table class="table table-striped border">
+    <thead>
+      <tr>
+        <th scope="col-3">Food</th>
+        <th scope="col-3">Quantity</th>
+        <th scope="col-3">Value</th>
+        <% if can? :create, @recipe%>
+          <th scope="col-3" class="table-action">Action</th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+    <% @recipe.ingredients.includes([:food]).each do |ingredient| %>
+      <tr>
+        <th scope="row"><%= ingredient.food.name %></th>
+        <td><%= ingredient.quantity %> <b>g</b></td>
+        <td><b>$</b> <%= ingredient.food.price * ingredient.quantity %></td>
+        <% if can? :create, @recipe%>
+          <td class="d-flex justify-content-center">
+            <%= link_to "Modify", edit_ingredient_url(ingredient.id), class: "btn btn-outline-warning btn-sm mx-2" %>
+            <%= button_to "Remove", ingredient_url(ingredient.id), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-outline-danger btn-sm" %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</section>
+
+<div class="py-3 px-5 d-flex justify-content-between">
+  <%= link_to "< Back to Recipes", recipes_path, class: "text-decoration-none" %>
+
+  <% if can? :create, @recipe%>
+    <%= link_to "Edit Recipe >", edit_recipe_path(@recipe), class: "text-decoration-none" %>
+  <% end %>
+</div>
+
+<% if can? :destroy, @recipe%>
+  <div class="text-center">
+    <%= button_to "Delete recipe", @recipe, method: :delete, class: "btn btn-outline-danger" %>
+  </div>
+<% end %>

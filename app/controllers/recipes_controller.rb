@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
   before_action :set_recipe, only: %i[show edit update destroy]
 
   # GET /recipes
@@ -17,7 +18,7 @@ class RecipesController < ApplicationController
   # GET /recipes/1/edit
   def edit; end
 
-  # POST /recipes or /recipes.json
+  # POST /recipes
   def create
     @recipe = Recipe.new(recipe_params)
 
@@ -30,7 +31,7 @@ class RecipesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /recipes/1 or /recipes/1.json
+  # PATCH/PUT /recipes/1
   def update
     respond_to do |format|
       if @recipe.update(recipe_params)
@@ -41,7 +42,7 @@ class RecipesController < ApplicationController
     end
   end
 
-  # DELETE /recipes/1 or /recipes/1.json
+  # DELETE /recipes/1
   def destroy
     @recipe.destroy
 

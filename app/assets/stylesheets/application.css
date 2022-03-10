@@ -35,3 +35,7 @@
   width: 80%;
   z-index: 1;
 }
+
+.table-action {
+  text-align: center;
+}
