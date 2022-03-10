@@ -2,10 +2,36 @@
 
 <div class="container mt-5 mb-2 d-flex justify-content-between ">
   <%= link_to "Gererate shopping list", "/foods/new", class: "btn btn-warning" %>
-  <%= link_to "Add ingredient", "/foods/new", class: "btn btn-warning" %>
+  <%= link_to "Add ingredient", new_recipe_ingredient_url(@recipe.id), class: "btn btn-warning" %>
 </div>
 
 <hr class="container">
+
+<section class="container mb-5">
+  <table class="table table-striped border">
+    <thead>
+      <tr>
+        <th scope="col-3">Food</th>
+        <th scope="col-3">Quantity</th>
+        <th scope="col-3">Value</th>
+        <th scope="col-3">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @recipe.ingredients.includes([:food]).each do |ingredient| %>
+      <tr>
+        <th scope="row"><%= ingredient.food.name %></th>
+        <td><%= ingredient.quantity %> <b>g</b></td>
+        <td><b>$</b> <%= ingredient.food.price * ingredient.quantity %></td>
+        <td class="d-flex justify-content-center">
+          <%= link_to "Modify", edit_ingredient_url(ingredient.id), class: "btn btn-outline-warning btn-sm mx-2" %>
+          <%= button_to "Remove", ingredient_url(ingredient.id), method: :delete, data: { confirm: "Are you sure?" }, :class => "btn btn-outline-danger btn-sm" %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</section>
 
 <div class="py-3 px-5 d-flex justify-content-between">
   <%= link_to "< Back to Recipes", recipes_path, class: "text-decoration-none" %>
