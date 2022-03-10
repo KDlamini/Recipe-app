@@ -6,7 +6,7 @@
   <div class="card-body">
     <p class="card-text"><%= recipe[:description] %></p>
     <p class="card-text">total food: <%= recipe[:ingredients_amount] %></p>
-    <p class="card-text">total amount: <%= recipe[:ingredients_price] %></p>
+    <p class="card-text">total amount: <%= recipe[:total_price] %></p>
     <%= link_to "recipe list", recipe_path(recipe[:id]), :class => "btn btn-primary" %>
   </div>
 </div>
