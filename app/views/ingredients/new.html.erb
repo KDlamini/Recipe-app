@@ -1,29 +1,31 @@
-<h1>New recipe food</h1>
+<h1 class="text-center p-3">New recipe food</h1>
 
-<%= form_with model: @ingredient, url: [@recipe, @ingredient] do |form| %>
+<section class="container col-8">
+    <%= form_with model: @ingredient, url: [@recipe, @ingredient] do |form| %>
 
-    <select name='food_id' id='food_id' class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-        <option selected>Select Food</option>
-        <% @foods.each do |food| %>
-        <option value=<%= food.id %>><%= food.name %></option>
-        <% end %>
-    </select>
+        <select name='food_id' id='food_id' class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option selected>Select Food</option>
+            <% @foods.each do |food| %>
+            <option value=<%= food.id %>><%= food.name %></option>
+            <% end %>
+        </select>
 
-    <div class="mb-5 w-25">
-        <%= form.label :quantity, "Quantity (grams)", :class => "form-label" %>
-        <%= form.number_field :quantity, placeholder: "Qauntity", required: true, :class => "form-control" %>
-    </div>
+        <div class="mb-5 w-25">
+            <%= form.label :quantity, "Quantity (grams)", style: "display: block" %>
+            <%= form.number_field :quantity, placeholder: "Qauntity", required: true, :class => "form-control" %>
+        </div>
 
-    <%= form.hidden_field :recipe_id, value: @recipe.id %>
+        <%= form.hidden_field :recipe_id, value: @recipe.id %>
 
-    <div>
-        <%= form.submit "Add Ingredient", :class => "btn btn-primary", disable_with: "Please wait..." %>
-    </div>
+        <div class="text-center">
+            <%= form.submit "Add Ingredient", class: "btn btn-warning", disable_with: "Please wait..." %>
+        </div>
 
-<% end %>
+    <% end %>
+</section>
 
 <br>
 
-<div>
-  <%= link_to "Back to Recipe", recipe_path(@recipe) %>
+<div class="px-5">
+  <%= link_to "< Back to Recipe", recipe_path(@recipe), class: "text-decoration-none" %>
 </div>
