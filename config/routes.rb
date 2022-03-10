@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :foods
+  resources :public_recipes
   
   resources :recipes do
     resources :ingredients, controller: 'ingredients', except: [ :index, :show ], shallow: true
