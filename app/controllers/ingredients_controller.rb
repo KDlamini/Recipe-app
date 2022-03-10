@@ -7,7 +7,9 @@ class IngredientsController < ApplicationController
   end
 
   # GET /ingredients/1/edit
-  def edit; end
+  def edit
+    set_edit
+  end
 
   # POST /ingredients
   def create
@@ -25,9 +27,11 @@ class IngredientsController < ApplicationController
 
   # PATCH/PUT /ingredients/1
   def update
+    set_edit
+
     respond_to do |format|
       if @ingredient.update(ingredient_params)
-        format.html { redirect_to ingredient_url(@ingredient), notice: 'Ingredient was successfully updated.' }
+        format.html { redirect_to recipe_path(@recipe), notice: 'Ingredient was successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -44,6 +48,11 @@ class IngredientsController < ApplicationController
   end
 
   private
+
+  def set_edit
+    @ingredient = current_ingredient
+    @recipe = Recipe.find(current_ingredient.recipe_id)
+  end
 
   def current_recipe
     Recipe.find(params[:recipe_id])
