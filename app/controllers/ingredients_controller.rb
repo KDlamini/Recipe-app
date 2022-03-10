@@ -16,7 +16,7 @@ class IngredientsController < ApplicationController
   # POST /ingredients
   def create
     food = Food.find(params[:food_id])
-    @ingredient = current_recipe.add_ingredient(food, ingredient_params[:quantity])
+    @ingredient = current_recipe.add_ingredient!(food, ingredient_params[:quantity])
 
     respond_to do |format|
       if @ingredient.save
