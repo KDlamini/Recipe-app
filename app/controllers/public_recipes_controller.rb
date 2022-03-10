@@ -1,19 +1,17 @@
 class PublicRecipesController < ApplicationController
   def index
-    @public_recipes = Recipe.includes(:recipe_foods,:foods)
-    .where(public: true).order('created_at DESC').map do |recipe|
+    @public_recipes = Recipe.includes(:ingredients,
+                                      :foods).where(public: true).order('created_at DESC').map do |recipe|
       {
         id: recipe.id,
         name: recipe.name,
         user: recipe.user.name,
         description: recipe.description,
-        ingredients_amount: recipe.recipe_foods.count,
-        total_price: sums(recipe.recipe_foods)
+        ingredients_amount: recipe.ingredients.count,
+        total_price: sums(recipe.ingredients)
       }
     end
   end
-
-  def 
 
   def sums(arr)
     sum = 0

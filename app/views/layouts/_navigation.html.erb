@@ -15,21 +15,18 @@
               <li>
                 <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
               </li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Dishes</a></li>
-              <li><a class="dropdown-item" href="#">Food List</a></li>
-              <li><%= link_to "Recipes", recipes_path, class: "dropdown-item" %></li>
-              <li><a class="dropdown-item" href="#">Shopping</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
             <% else %>
               <li><%= link_to "Login", new_user_session_path, class: "dropdown-item" %></li>
+            <% end %>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Dishes</a></li>
-              <li><a class="dropdown-item" href="#">Food List</a></li>
-              <li><%= link_to "Recipes", recipes_path %></li>
+              <li><%= link_to "Dishes", public_recipes_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Recipes", recipes_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Food List", foods_path, class: "dropdown-item" %></li>
               <li><a class="dropdown-item" href="#">Shopping</a></li>
               <li><hr class="dropdown-divider"></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+            <% else %>
               <li><%= link_to "Sign up", new_user_registration_path, class: "dropdown-item" %></li>
             <% end %>
           </ul>
