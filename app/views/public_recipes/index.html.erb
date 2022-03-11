@@ -1,7 +1,9 @@
+<h1 class="text-center p-3">Dishes</h1>
+
 <div class="d-flex justify-content-center">
   <div class="col-9">
     <% @public_recipes.each do |recipe| %>  
-      <div class="card w-100 mt-5">
+      <div class="card w-100 mb-5">
         <div class="card-header pb-0">
           <h5><%= recipe[:name] %> </h5>
           <p class="mb-1">by <%= recipe[:user]%></p>
@@ -15,4 +17,8 @@
       </div>
     <%end%>
   </div>
+</div>
+
+<div class="mb-3 py-3 px-5">
+  <%= link_to "< Back", :back, class: "text-decoration-none" %>
 </div>
