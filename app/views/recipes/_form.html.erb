@@ -32,6 +32,11 @@
       <%= form.text_area :description, class: "form-control" %>
     </div>
 
+    <div class="mb-3">
+      <%= form.label :steps, style: "display: block", class: "form-label" %>
+      <%= form.text_area :steps, class: "form-control", rows: 4 %>
+    </div>
+
     <div class="mb-3 d-flex align-items-center">
       <%= form.label :public, style: "display: block" %>
       <%= form.check_box :public, class: "ms-2" %>

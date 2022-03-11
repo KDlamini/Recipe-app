@@ -8,9 +8,7 @@ class RecipesController < ApplicationController
   end
 
   # GET /recipes/1
-  def show
-    @general_shopping_list = Recipe.find(params[:id])
-  end
+  def show; end
 
   # GET /recipes/new
   def new
@@ -62,6 +60,6 @@ class RecipesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def recipe_params
-    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public, :user_id)
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :steps, :public, :user_id)
   end
 end

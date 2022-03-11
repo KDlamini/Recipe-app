@@ -1,23 +1,25 @@
-<h1>Editing user</h1>
+<h1 class="text-center p-3">User Details</h1>
 
-<%= form_with(model: current_user) do |form| %>
-  <% if current_user.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(current_user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<section class="container col-6">
+  <%= form_with(model: current_user) do |form| %>
+    <% if current_user.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(current_user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-        <% current_user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% current_user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="actions m-3 text-center">
+      <%= form.submit class: "btn btn-outline-primary" %>
     </div>
   <% end %>
+</section>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<div>
-  <%= link_to "Back to user", user_path(current_user) %>
+<div class="mb-3 px-5">
+  <%= link_to "< Back", user_path(current_user), class: "text-decoration-none" %>
 </div>

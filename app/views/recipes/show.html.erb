@@ -48,7 +48,7 @@
 </div>
 
 <% if can? :destroy, @recipe%>
-  <div class="text-center">
+  <div class="text-center mb-3">
     <%= button_to "Delete recipe", @recipe, method: :delete, class: "btn btn-outline-danger" %>
   </div>
 <% end %>

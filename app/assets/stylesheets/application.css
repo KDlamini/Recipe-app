@@ -39,3 +39,8 @@
 .table-action {
   text-align: center;
 }
+
+.avatar {
+  width: 150px;
+  height: 150px;
+}
