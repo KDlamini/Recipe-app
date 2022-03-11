@@ -1,0 +1,58 @@
+<div class="banner bg-light px-4 py-5 text-center border rounded-3">
+    <div class="py-5">
+        <h3 class="display-5">Welcome to the Recipes home</h3>
+        <div class="mx-auto">
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-warning text-dark">
+                    <%= link_to 'Dishes', public_recipes_path, class: "text-decoration-none text-dark" %>
+                </button>
+                <button type="button" class="btn btn-outline-warning text-dark">
+                    <%= link_to "Recipe List", recipes_path, class: "text-decoration-none text-dark" %>
+                </button>
+                <button type="button" class="btn btn-outline-warning text-dark">
+                    <%= link_to "Food List", foods_path, class: "text-decoration-none text-dark" %>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <%= image_tag('https://post.healthline.com/wp-content/uploads/2020/09/healthy-eating-ingredients-732x549-thumbnail.jpg',
+            class: "d-block w-100", alt: 'food') %>
+    </div>
+    <div class="carousel-item">
+        <%= image_tag('https://www.eatthis.com/wp-content/uploads/sites/4/2019/06/deep-dish-pizza-chicago.jpg',
+            class: "d-block w-100", alt: 'food') %>
+    </div>
+    <div class="carousel-item">
+        <%= image_tag('https://s3.amazonaws.com/prod.tctmd.com/public/2021-03/Eating%20More%20Ultraprocessed%20%E2%80%98Junk%E2%80%99%20Food%20Linked%20to%20Higher%20CVD%20Risk.jpeg',
+            class: "d-block w-100", alt: 'food') %>
+    </div>
+    <div class="carousel-item">
+        <%= image_tag('https://www.organicfarm.it/wp-content/uploads/2019/02/Spaghetti-al-pomodoro.jpg',
+            class: "d-block w-100", alt: 'food') %>
+    </div>
+    <div class="carousel-item">
+        <%= image_tag('https://awol.junkee.com/wp-content/uploads/2019/11/30624445_2031384813783830_665928700650323968_n-copy.jpg',
+            class: "d-block w-100", alt: 'food') %>
+    </div>
+    <div class="carousel-item">
+        <%= image_tag('https://alivefitandfree.com/wp-content/uploads/2021/06/Healthy-Food-Doesnt-Have-To-Be-Expensive.jpg',
+            class: "d-block w-100", alt: 'food') %>
+    </div>
+    <div class="carousel-item">
+        <%= image_tag('https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimg1.cookinglight.timeinc.net%2Fsites%2Fdefault%2Ffiles%2Fimage%2F2017%2F03%2Fmain%2Fcreamy-tomato-mushroom-farrotto.jpg',
+            class: "d-block w-100", alt: 'food') %>
+    </div>
+    
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

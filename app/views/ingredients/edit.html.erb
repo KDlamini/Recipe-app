@@ -1,0 +1,25 @@
+<h1 class="text-center p-3">Editing ingredient</h1>
+
+<section class="container col-8">
+    <%= form_with model: @ingredient do |form| %>
+        <div class="mb-3">
+          <input type="text" value="<%= @ingredient.food.name%>" class="form-control" disabled>
+        </div>
+
+        <div class="mb-5 w-25">
+            <%= form.label :quantity, "Quantity (grams)", style: "display: block" %>
+            <%= form.number_field :quantity, placeholder: "Quantity", required: true, class: "form-control" %>
+        </div>
+
+        <div class="text-center">
+            <%= form.submit "Update Ingredient", class: "btn btn-warning" %>
+        </div>
+
+    <% end %>
+</section>
+
+<br>
+
+<div class="mb-3 px-5">
+  <%= link_to "< Back to Recipe", recipe_path(@recipe), class: "text-decoration-none" %>
+</div>

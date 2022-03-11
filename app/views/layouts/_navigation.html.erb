@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <%= link_to "Tasty Dishes", root_path, class: "navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 d-flex justify-content-end">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            My Account
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% if user_signed_in? %>
+              <li>
+                <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
+              </li>
+            <% else %>
+              <li><%= link_to "Login", new_user_session_path, class: "dropdown-item" %></li>
+            <% end %>
+              <li><hr class="dropdown-divider"></li>
+              <li><%= link_to "Dishes", public_recipes_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Recipes", recipes_path, class: "dropdown-item" %></li>
+              <li><%= link_to "Food List", foods_path, class: "dropdown-item" %></li>
+              <li><hr class="dropdown-divider"></li>
+            <% if user_signed_in? %>
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+            <% else %>
+              <li><%= link_to "Sign up", new_user_registration_path, class: "dropdown-item" %></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>

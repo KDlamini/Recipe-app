@@ -1,0 +1,40 @@
+<div class="w-100 d-flex justify-content-center">
+<div class="w-75 d-flex flex-column">
+
+<div class='add_new_food my-3 d-flex w-100 justify-content-end'>
+  <% if user_signed_in? %>
+    <%= link_to 'Add new food', "/foods/new", class: "btn btn-warning"%>
+  <% end %>
+</div>
+
+
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Food</th>
+      <th scope="col">Measurement Unit</th>
+      <th scope="col">Unit price</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @food.each do |food| %>
+    <tr>
+      <td><%= food.name %></td>
+      <td><%= food.measurement_unit %></td>
+      <td>$<%= food.price %></td>
+      <td class="text-center">
+        <% if can? :destroy, food%>
+          <%= button_to 'Delete', "foods/#{food.id}", method: :delete, class: "btn btn-outline-danger btn-sm" %>
+        <% end %>
+      </td>
+    </tr>
+  <%end%>
+  </tbody>
+</table>
+</div>
+</div>
+
+<div class="m-3 py-3 px-5">
+  <%= link_to "< Back", :back, class: "text-decoration-none" %>
+</div>

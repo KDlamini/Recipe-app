@@ -1,0 +1,25 @@
+<div id="<%= dom_id recipe %>" class="container">
+  <h2 class="text-center p-3"><%= recipe.name %></h2>
+  <div class="d-flex justify-content-between">
+    <p>
+      <strong>Preparation time:</strong>
+      <%= recipe.preparation_time %>
+    </p>
+    <div class="d-flex">
+      <strong class="px-3">Public</strong>
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" data-onstyle="success" data-offstyle="danger" checked>
+      </div>
+    </div>
+  </div>
+
+  <p>
+    <strong>Cooking time:</strong>
+    <%= recipe.cooking_time %>
+  </p>
+
+  <div>
+    <strong>Steps:</strong>
+    <p><%= recipe.steps %></p>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<h1 class="text-center p-3">Editing recipe</h1>
+
+<%= render "form", recipe: @recipe %>
+
+<br>
+
+<div class="mb-3 px-5 d-flex justify-content-between">
+  <%= link_to "< Back to Recipes", recipes_path, class: "text-decoration-none" %>
+  <%= link_to "View Recipe >", @recipe, class: "text-decoration-none" %>
+</div>
