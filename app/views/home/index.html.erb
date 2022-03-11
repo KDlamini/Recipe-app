@@ -1,17 +1,17 @@
 <div class="banner bg-light px-4 py-5 text-center border rounded-3">
     <div class="py-5">
-        <h2 class="display-5 fw-bold">
-            <p>Welcome to the Recipes home</p>
-        </h2>
+        <h3 class="display-5">Welcome to the Recipes home</h3>
         <div class="mx-auto">
             <div class="btn-group" role="group" aria-label="Basic outlined example">
                 <button type="button" class="btn btn-outline-warning text-dark">
                     <%= link_to 'Dishes', public_recipes_path, class: "text-decoration-none text-dark" %>
                 </button>
                 <button type="button" class="btn btn-outline-warning text-dark">
-                    <%= link_to "Recipes", recipes_path, class: "text-decoration-none text-dark" %>
+                    <%= link_to "Recipe List", recipes_path, class: "text-decoration-none text-dark" %>
                 </button>
-                <button type="button" class="btn btn-outline-warning text-dark">Shopping</button>
+                <button type="button" class="btn btn-outline-warning text-dark">
+                    <%= link_to "Food List", foods_path, class: "text-decoration-none text-dark" %>
+                </button>
             </div>
         </div>
     </div>

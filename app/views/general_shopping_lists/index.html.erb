@@ -3,11 +3,10 @@
 <div class="w-75 d-flex flex-column">
 <h1 class="text-center">General Shopping Lists</h1>
 <div class="w-100 d-flex justify-content-between mt-4">
-<div>Amount of food items needed: <%= @recipe.ingredients.count%></div>
-<div>Total amount needed to buy: <span>$</span><%= @total_amount%></div>
+  <div>Amount of food items needed: <%= @recipe.ingredients.count%></div>
+  <div>Total amount needed to buy: <span>$</span><%= @total_amount%></div>
 </div>
-<div class='add_new_food mt-5 mb-3 d-flex w-100 justify-content-end'>
-    <%= link_to 'back to ingredients', recipe_path(@recipe)%>
+<div class='mt-5 mb-3 w-100'>
 </div>
 
 
@@ -30,4 +29,8 @@
   </tbody>
 </table>
 </div>
+</div>
+
+<div class="my-3 py-3 px-5">
+  <%= link_to "< Back", :back, class: "text-decoration-none" %>
 </div>

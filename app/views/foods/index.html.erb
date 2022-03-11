@@ -2,7 +2,9 @@
 <div class="w-75 d-flex flex-column">
 
 <div class='add_new_food my-3 d-flex w-100 justify-content-end'>
-    <%= link_to 'Add new food', "/foods/new"%>
+  <% if user_signed_in? %>
+    <%= link_to 'Add new food', "/foods/new", class: "btn btn-warning"%>
+  <% end %>
 </div>
 
 
@@ -21,10 +23,18 @@
       <td><%= food.name %></td>
       <td><%= food.measurement_unit %></td>
       <td>$<%= food.price %></td>
-      <td><%= button_to 'Delete', "foods/#{food.id}", method: :delete %></td>
+      <td class="text-center">
+        <% if can? :destroy, food%>
+          <%= button_to 'Delete', "foods/#{food.id}", method: :delete, class: "btn btn-outline-danger btn-sm" %>
+        <% end %>
+      </td>
     </tr>
   <%end%>
   </tbody>
 </table>
 </div>
+</div>
+
+<div class="m-3 py-3 px-5">
+  <%= link_to "< Back", :back, class: "text-decoration-none" %>
 </div>

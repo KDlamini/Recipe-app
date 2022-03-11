@@ -40,7 +40,7 @@
 </section>
 
 <div class="py-3 px-5 d-flex justify-content-between">
-  <%= link_to "< Back to Recipes", recipes_path, class: "text-decoration-none" %>
+  <%= link_to "< Back", :back, class: "text-decoration-none" %>
 
   <% if can? :create, @recipe%>
     <%= link_to "Edit Recipe >", edit_recipe_path(@recipe), class: "text-decoration-none" %>
