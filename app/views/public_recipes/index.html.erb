@@ -1,15 +1,18 @@
-  <div class="d-flex justify-content-center">
-  <div class="w-50">
-  <% @public_recipes.each do |recipe| %>  
-  <div class="card w-100 mt-5">
-  <h5 class="card-header"><%= recipe[:name] %> by <%= recipe[:user]%></h5>
-  <div class="card-body">
-    <p class="card-text"><%= recipe[:description] %></p>
-    <p class="card-text">total food: <%= recipe[:ingredients_amount] %></p>
-    <p class="card-text">total amount: <%= recipe[:total_price] %></p>
-    <%= link_to "recipe list", recipe_path(recipe[:id]), :class => "btn btn-primary" %>
+<div class="d-flex justify-content-center">
+  <div class="col-9">
+    <% @public_recipes.each do |recipe| %>  
+      <div class="card w-100 mt-5">
+        <div class="card-header pb-0">
+          <h5><%= recipe[:name] %> </h5>
+          <p class="mb-1">by <%= recipe[:user]%></p>
+        </div>
+        <div class="card-body">
+          <p class="card-text"><%= recipe[:description] %></p>
+          <p class="card-text"><b>Total Ingredients:</b> <%= recipe[:ingredients_amount] %></p>
+          <p class="card-text"><b>Total Amount: $</b><%= recipe[:total_price] %></p>
+          <%= link_to "Recipe", recipe_path(recipe[:id]), :class => "btn btn-warning" %>
+        </div>
+      </div>
+    <%end%>
   </div>
 </div>
- <%end%>
- </div>
- </div>
