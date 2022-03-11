@@ -17,7 +17,7 @@ class PublicRecipesController < ApplicationController
     sum = 0
     arr.each do |ar|
       sum += (ar.quantity * ar.food.price)
-  end
-  return sum
+    end
+    sum
   end
 end
