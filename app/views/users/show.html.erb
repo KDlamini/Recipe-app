@@ -1,11 +1,18 @@
-<div class="grid-x">
-    <%= link_to user_avatar(@user.photo), user_path(@user), class: 'thumbnail' %>
-    <div class="user">
-        <h3><% @user.name %></h3>
-    </div>
-</div>
+<section class="container my-5">
+  <div class="row">
+      <%= link_to user_avatar(@user.photo), user_path(@user), class: "col-2" %>
+      <div class="col-10 p-2">
+        <div class="d-flex justify-content-between">
+          <h3><%= @user.name %></h3>
+          <%= link_to "Edit", edit_user_path(@user), class: "text-decoration-none" %>
+        </div>
+      </div>
+  </div>
+  <div class="actions m-3 text-center">
+    <%= link_to "Account settings", edit_user_registration_path, class: "text-decoration-none btn btn-outline-primary" %>
+  </div>
+</section>
 
-<div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= button_to "Delete account", @user, method: :delete %>
+<div class="mb-3 px-5">
+  <%= link_to "< Back", :back, class: "text-decoration-none" %>
 </div>
