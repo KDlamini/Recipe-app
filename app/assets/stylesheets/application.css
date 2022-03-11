@@ -41,6 +41,15 @@
 }
 
 .avatar {
-  width: 150px;
-  height: 150px;
+  width: 25%;
+  height: 25%;
+}
+
+.dish-card {
+  border: 0;
+}
+
+.recipe-img {
+  width: 250px;
+  height: 250px;
 }
