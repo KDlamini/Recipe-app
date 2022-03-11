@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :users
   resources :foods
   resources :public_recipes
-  
+  # resources :general_shopping_lists
+  get "/recipes/:recipe_id/general_shopping_lists", to: "general_shopping_lists#index", as: 'general_shopping_lists'
   resources :recipes do
     resources :ingredients, controller: 'ingredients', except: [ :index, :show ], shallow: true
     resources :general_shopping_lists, only: [:index]

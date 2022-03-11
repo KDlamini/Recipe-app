@@ -8,8 +8,16 @@ class PublicRecipesController < ApplicationController
         user: recipe.user.name,
         description: recipe.description,
         ingredients_amount: recipe.ingredients.count,
-        ingredients_price: recipe.foods.map(&:price).sum
+        total_price: sums(recipe.ingredients)
       }
     end
+  end
+
+  def sums(arr)
+    sum = 0
+    arr.each do |ar|
+      sum += (ar.quantity * ar.food.price)
+    end
+    sum
   end
 end
