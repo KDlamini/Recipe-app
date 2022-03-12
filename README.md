@@ -6,6 +6,9 @@ The Recipe app keeps track of all your recipes, ingredients, and inventory. It w
 
 - Ruby on Rails
 
+## Live Demo
+[Heroku](https://tasty-dishes-52422.herokuapp.com/)
+
 ## Additional Tools
 
 - rubocop
