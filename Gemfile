@@ -46,6 +46,8 @@ gem 'bootsnap', require: false
 
 gem 'devise'
 
+gem 'dotenv-rails'
+
 gem 'cancancan'
 
 # Use Sass to process CSS

@@ -2,6 +2,8 @@
 
 Rails.application.routes.draw do
   devise_for :users
+  root 'home#index'
+
   resources :users
   resources :foods
   resources :public_recipes
@@ -11,6 +13,5 @@ Rails.application.routes.draw do
     resources :ingredients, controller: 'ingredients', except: [ :index, :show ], shallow: true
     resources :general_shopping_lists, only: [:index]
   end
-  root 'home#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 end
